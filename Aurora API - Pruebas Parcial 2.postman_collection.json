@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "62c513d1-aaed-43c3-a933-dfc8db895842",
+		"name": "Aurora API - Pruebas Parcial 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47698225",
+		"_collection_link": "https://josese77-student-3193941.postman.co/workspace/Jos%C3%A9-Pablo-Sosa-Espa%C3%B1a's-Worksp~f5f4521a-9650-486f-8001-8d6dd951779d/collection/47698225-62c513d1-aaed-43c3-a933-dfc8db895842?action=share&source=collection_link&creator=47698225"
+	},
+	"item": [
+		{
+			"name": "GET /api/libros (200 lista completa)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/libros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/libros (201 crear válido)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Libro prueba\",\n  \"author\": \"Tester\",\n  \"year\": 2024\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/libros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/libros (400 faltan campos)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/libros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/libros (400 año inválido)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Bad year\",\n  \"author\": \"X\",\n  \"year\": \"dos mil\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/libros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/libros (409 duplicado título+year)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Libro prueba\",\n  \"author\": \"Tester\",\n  \"year\": 2024\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/libros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/libros/:id válido (200)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/libros/<PON_AQUI_UN_ID_VALIDO>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros",
+						"<PON_AQUI_UN_ID_VALIDO>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/libros/123 (400 UUID inválido)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/libros/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/libros/noexiste (404)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/libros/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros",
+						"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /api/libros/:id válido (200)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/libros/<PON_AQUI_UN_ID_VALIDO>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros",
+						"<PON_AQUI_UN_ID_VALIDO>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /api/libros/xyz (400 UUID inválido)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/libros/xyz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros",
+						"xyz"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /api/libros/noexiste (404)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/libros/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"libros",
+						"aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
